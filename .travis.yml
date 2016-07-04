@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - "6.2.1"
+
+cache:
+  directories:
+    - node_modules
+    - bower_components
+
+install:
+- npm install -g typescript
+- npm install -g typings
+- npm install -g karma-cli
+- npm install -g protractor
+- npm install -g angular-cli
+- npm install
