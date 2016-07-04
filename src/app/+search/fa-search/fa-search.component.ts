@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+  moduleId: module.id,
   selector: 'app-fa-search',
-  templateUrl: './app/+search/fa-search/fa-search.component.html',
-  styleUrls: ['./app/+search/fa-search/fa-search.component.css']
+  templateUrl: 'fa-search.component.html',
+  styleUrls: ['fa-search.component.css']
 })
 export class FaSearchComponent implements OnInit {
 

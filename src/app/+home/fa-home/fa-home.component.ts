@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 
 @Component({
+  moduleId: module.id,
   selector: 'app-fa-home',
-  templateUrl: './app/+home/fa-home/fa-home.component.html',
-  styleUrls: ['./app/+home/fa-home/fa-home.component.css']
+  templateUrl: 'fa-home.component.html',
+  styleUrls: ['fa-home.component.css']
 })
 export class FaHomeComponent implements OnInit {
 

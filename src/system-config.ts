@@ -37,6 +37,8 @@ const barrels: string[] = [
   'app/+search/fa-search',
   'app/+spin/fa-spin',
   'app/shared/fa-header',
+  'app/shared/fa-restaurant',
+  'app/shared/fa-list',
   /** @cli-barrel */
 ];
 
