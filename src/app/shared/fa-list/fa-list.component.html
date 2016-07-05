@@ -1,3 +1,5 @@
-<p>
-  fa-list works!
-</p>
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let restaurant of restaurants">
+    <app-fa-restaurant [restaurantData]="restaurant"></app-fa-restaurant>
+  </li>
+</ul>
