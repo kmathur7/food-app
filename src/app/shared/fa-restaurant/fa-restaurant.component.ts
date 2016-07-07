@@ -11,7 +11,7 @@ export class FaRestaurantComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.restaurantData);
+    
   }
 
 }
