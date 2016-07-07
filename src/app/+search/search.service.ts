@@ -6,23 +6,21 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class SearchService {
-  private authHeader = new Headers({ "Content-Type": "application/json" });
+  
   private options = new RequestOptions({
-    headers: this.authHeader,
     search: this.params
   });
-  private zomatoUrl = 'https://developers.zomato.com/api/v2.1/search';  // URL to Zomato
+  private zomatoUrl = '/search';  // URL to Zomato
   private params = new URLSearchParams();
 
-  constructor(private jsonp: Jsonp) {
-    this.authHeader.append('user-key', '300a387c4eca4461fb5c7a2e3b3a6265');
+  constructor(private http: Http) {
     this.params.set('lat', '40.732013');
     this.params.set('lon', '-73.996155');
     this.params.set('radius', '100');
   }
-  getRestaurants(): Observable<any[]> {
+  getRestaurants(): Observable<any> {
 
-    return this.jsonp.get(this.zomatoUrl, this.options)
+    return this.http.get(this.zomatoUrl, this.options)
       .map(this.extractData)
       .catch(this.handleError);
 

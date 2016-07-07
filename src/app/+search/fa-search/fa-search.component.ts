@@ -19,9 +19,10 @@ export class FaSearchComponent implements OnInit {
   ngOnInit() {
     this.searchService.getRestaurants()
                       .subscribe(
-                        restaurants => console.log(restaurants),
+                        response => {this.restaurants=response.restaurants;
+                          console.log(response.restaurants)},
                         error => this.errorMessage = <any>error
                       );
-  } //this.restaurants = restaurants
+  }
 
 }
