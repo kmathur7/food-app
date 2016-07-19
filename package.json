@@ -26,8 +26,9 @@
     "@angular2-material/button": "^2.0.0-alpha.6",
     "@angular2-material/card": "^2.0.0-alpha.6",
     "@angular2-material/core": "^2.0.0-alpha.6",
-    "@angular2-material/icon": "^2.0.0-alpha.6",
     "@angular2-material/input": "^2.0.0-alpha.6",
+    "@angular2-material/sidenav": "^2.0.0-alpha.6",
+    "@angular2-material/toolbar": "^2.0.0-alpha.6",
     "angular-cli": "1.0.0-beta.9",
     "bootstrap": "3.3.6",
     "es6-shim": "0.35.1",
@@ -39,7 +40,6 @@
   },
   "devDependencies": {
     "angular-cli": "1.0.0-beta.9",
-    "codelyzer": "0.0.25",
     "ember-cli-inject-live-reload": "1.4.0",
     "jasmine-core": "2.4.1",
     "jasmine-spec-reporter": "2.5.0",

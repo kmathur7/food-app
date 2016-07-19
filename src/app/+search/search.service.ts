@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Headers, RequestOptions, Response, URLSearchParams, Jsonp, Http} from '@angular/http';
-import { Observable }     from 'rxjs/Observable';
+import { Headers, RequestOptions, Response, URLSearchParams, Http} from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class SearchService {
-  
+
   private options = new RequestOptions({
     search: this.params
   });
