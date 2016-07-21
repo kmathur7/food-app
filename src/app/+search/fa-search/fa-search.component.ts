@@ -1,28 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import { JSONP_PROVIDERS }  from '@angular/http';
 import { FaListComponent } from '../../shared/fa-list/fa-list.component';
 import { SearchService } from '../search.service';
+import { FaHeaderComponent } from '../../shared/fa-header/fa-header.component';
 
 @Component({
   moduleId: module.id,
   selector: 'app-fa-search',
   templateUrl: 'fa-search.component.html',
   styleUrls: ['fa-search.component.css'],
-  directives: [FaListComponent],
-  providers:[SearchService,JSONP_PROVIDERS]
+  directives: [FaListComponent, FaHeaderComponent],
+  providers: [SearchService]
 })
 export class FaSearchComponent implements OnInit {
   restaurants: any[];
   errorMessage: any;
-  constructor(private searchService: SearchService) {}
+  constructor(private searchService: SearchService) { }
 
   ngOnInit() {
     this.searchService.getRestaurants()
-                      .subscribe(
-                        response => {this.restaurants=response.restaurants;
-                          console.log(response.restaurants)},
-                        error => this.errorMessage = <any>error
-                      );
+      .subscribe(response => {
+        this.restaurants = response.restaurants;
+        console.log(response.restaurants)
+      },
+      error => this.errorMessage = <any>error
+      );
   }
 
 }
