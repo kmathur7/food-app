@@ -4,7 +4,8 @@ import { FaSearchComponent } from './+search/fa-search/fa-search.component';
 import { FaSpinComponent } from './+spin/fa-spin/fa-spin.component';
 
 export const routes: RouterConfig = [
-  { path: '', component: FaHomeComponent },
+  { path: '', redirectTo: 'home', pathMatch:'full'},
+  { path: 'home', component: FaHomeComponent },
   { path: 'search', component: FaSearchComponent },
   { path: 'spin', component: FaSpinComponent }
 ];

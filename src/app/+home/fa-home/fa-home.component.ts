@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MD_SIDENAV_DIRECTIVES } from '@angular2-material/sidenav';
+
 import { FaHeaderComponent } from '../../shared/fa-header/fa-header.component';
 
 
@@ -9,11 +9,26 @@ import { FaHeaderComponent } from '../../shared/fa-header/fa-header.component';
   selector: 'app-fa-home',
   templateUrl: 'fa-home.component.html',
   styleUrls: ['fa-home.component.css'],
-  directives: [FaHeaderComponent,MD_SIDENAV_DIRECTIVES]
+  directives: [FaHeaderComponent]
 
 })
 export class FaHomeComponent implements OnInit {
-  start = 'LTR';
+
+  lat = 0;
+  long = 0;
+
+  locate() {
+    if ("geolocation" in navigator) {
+      /* geolocation is available */
+      navigator.geolocation.getCurrentPosition( position => {
+        this.lat= position.coords.latitude;
+        this.long = position.coords.longitude;
+      });
+    } else {
+      /* geolocation IS NOT available */
+      console.log("Can't seem to be able to locate you! Try again later.")
+    }
+  }
   constructor() {
 
   }

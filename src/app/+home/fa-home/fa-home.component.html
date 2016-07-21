@@ -1,14 +1,24 @@
-<md-sidenav-layout>
+<div class="container-fluid">
+  <div class="row">
     <app-fa-header></app-fa-header>
-    <md-sidenav #start (open)="mybutton.focus()">
-      Start Sidenav.
-      <br>
-      <button md-button #mybutton (click)="start.close()">Close</button>
-    </md-sidenav>
-    <md-sidenav #end align="end">
-      End Sidenav.
-      <button md-button (click)="end.close()">Close</button>
-    </md-sidenav>
-    Home!
-
-</md-sidenav-layout>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-8">
+      <form class="form-inline">
+        <div class="form-group">
+          
+          <input type="text" class="form-control" id="enterlocation" placeholder="Enter Location">
+        </div>
+        <button class="btn btn-default">
+           <span class="glyphicon glyphicon-search"></span>
+          Search
+          </button>
+        <button class="btn btn-default" (click)="locate()">
+          <span class="glyphicon glyphicon-globe"></span>
+          Locate Me!
+          </button>
+          {{lat}},{{long}}
+      </form>
+    </div>
+  </div>
+</div>
