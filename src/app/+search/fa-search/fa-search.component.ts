@@ -14,11 +14,14 @@ import { FaHeaderComponent } from '../../shared/fa-header/fa-header.component';
 export class FaSearchComponent implements OnInit {
   restaurants: any[];
   errorMessage: any;
+  showSpinner: boolean;
   constructor(private searchService: SearchService) { }
 
   ngOnInit() {
+    this.showSpinner = true;
     this.searchService.getRestaurants()
       .subscribe(response => {
+        this.showSpinner = false;
         this.restaurants = response.restaurants;
         console.log(response.restaurants)
       },
