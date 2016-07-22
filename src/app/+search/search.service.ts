@@ -10,7 +10,7 @@ export class SearchService {
   private options = new RequestOptions({
     search: this.params
   });
-  private zomatoUrl = 'https://food-app-api.herokuapp.com/search';  // URL to Zomato
+  private zomatoUrl = 'https://food-express-api.herokuapp.com/search';  // URL to Zomato
   private params = new URLSearchParams();
 
   constructor(private http: Http) {
