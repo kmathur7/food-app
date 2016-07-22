@@ -23,6 +23,7 @@ export class SearchService {
     return this.http.get(this.zomatoUrl, this.options)
       .map(this.extractData)
       .catch(this.handleError);
+      
 
   }
 
