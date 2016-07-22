@@ -14,9 +14,9 @@ export class SearchService {
   private params = new URLSearchParams();
 
   constructor(private http: Http) {
-    this.params.set('lat', '40.732013');
-    this.params.set('lon', '-73.996155');
-    this.params.set('radius', '100');
+    this.params.set('lat', '12.9573004');
+    this.params.set('lon', '77.71851');
+    this.params.set('radius', '1000');
   }
   getRestaurants(): Observable<any> {
 
