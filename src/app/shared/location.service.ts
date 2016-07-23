@@ -13,6 +13,7 @@ export class LocationService {
                   error => {
                     return error;
                   });
+                  
     }
     else {
       /* geolocation IS NOT available */
