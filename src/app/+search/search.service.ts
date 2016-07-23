@@ -15,7 +15,7 @@ export class SearchService {
 
 
   constructor(private http: Http, private locationService: LocationService) {
-    this.location = locationService.getlocation();
+    locationService.getlocation();
     this.radius=1000;
     this.zomatoUrl = 'https://food-express-api.herokuapp.com/search?lat='+this.location.coords.latitude +'&lon='+this.location.coords.longitude+'&radius='+this.radius; 
   }
