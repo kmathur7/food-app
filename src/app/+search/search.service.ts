@@ -1,24 +1,23 @@
 import { Injectable } from '@angular/core';
 import { Headers, RequestOptions, Response, URLSearchParams, Http} from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import { LocationService } from '../shared/location.service';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class SearchService {
 
-  private lat;
-  private lon;
+  private location;
   private radius;
   private zomatoUrl = '';  // URL to Zomato
  
 
 
-  constructor(private http: Http) {
-    this.lat =12.9573004;
-    this.lon =77.71851;
+  constructor(private http: Http, private locationService: LocationService) {
+    this.location = locationService.getlocation();
     this.radius=1000;
-    this.zomatoUrl = 'https://food-express-api.herokuapp.com/search?lat='+this.lat+'&lon='+this.lon+'&radius='+this.radius; 
+    this.zomatoUrl = 'https://food-express-api.herokuapp.com/search?lat='+this.location.coords.latitude+'&lon='+this.location.coords.longitude+'&radius='+this.radius; 
   }
   getRestaurants(): Observable<any> {
 
