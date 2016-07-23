@@ -8,16 +8,20 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class SearchService {
 
-  private location;
+  private latitude;
+  private longitude;
   private radius;
   private zomatoUrl = '';  // URL to Zomato
  
 
 
   constructor(private http: Http, private locationService: LocationService) {
-    locationService.getlocation();
+    this.locationService.getlocation().subscribe((pos: Position) =>{
+      this.latitude = pos.coords.latitude;
+      this.longitude = pos.coords.longitude;
+    })
     this.radius=1000;
-    this.zomatoUrl = 'https://food-express-api.herokuapp.com/search?lat='+this.location.coords.latitude +'&lon='+this.location.coords.longitude+'&radius='+this.radius; 
+    this.zomatoUrl = 'https://food-express-api.herokuapp.com/search?lat='+this.latitude +'&lon='+this.longitude+'&radius='+this.radius; 
   }
   getRestaurants(): Observable<any> {
 
