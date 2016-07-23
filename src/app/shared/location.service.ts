@@ -6,7 +6,7 @@ export class LocationService {
   getlocation():Observable<Object> {
     
    return Observable.create(observer => {
-     navigator.geolocation.watchPosition((pos: Position) => {
+     navigator.geolocation.getCurrentPosition((pos: Position) => {
        observer.next(pos);
      })
    })

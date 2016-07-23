@@ -10,24 +10,31 @@ import { FaHeaderComponent } from '../../shared/fa-header/fa-header.component';
   templateUrl: 'fa-search.component.html',
   styleUrls: ['fa-search.component.css'],
   directives: [FaListComponent, FaHeaderComponent],
-  providers: [SearchService,LocationService]
+  providers: [SearchService, LocationService]
 })
 export class FaSearchComponent implements OnInit {
+
+  url: string;
+  private radius = 1000;
   restaurants: any[];
   errorMessage: any;
   showSpinner: boolean;
-  constructor(private searchService: SearchService) { }
+  constructor(private searchService: SearchService, private locationService: LocationService) { }
 
   ngOnInit() {
     this.showSpinner = true;
-    this.searchService.getRestaurants()
-      .subscribe(response => {
-        this.showSpinner = false;
-        this.restaurants = response.restaurants;
-        console.log(response.restaurants)
-      },
-      error => this.errorMessage = <any>error
-      );
+    this.locationService.getlocation()
+      .subscribe((pos: Position) => {
+        this.url = 'https://food-express-api.herokuapp.com/search?lat=' + pos.coords.latitude + '&lon=' + pos.coords.longitude + '&radius=' + this.radius;
+        this.searchService.getRestaurants(this.url)
+          .subscribe(response => {
+            this.showSpinner = false;
+            this.restaurants = response.restaurants;
+          },
+          error => this.errorMessage = <any>error
+          );
+      });
+
   }
 
 }
