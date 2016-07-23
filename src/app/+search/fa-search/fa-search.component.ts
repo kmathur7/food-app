@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FaListComponent } from '../../shared/fa-list/fa-list.component';
 import { SearchService } from '../search.service';
+import { LocationService } from '../../shared/location.service';
 import { FaHeaderComponent } from '../../shared/fa-header/fa-header.component';
 
 @Component({
@@ -9,7 +10,7 @@ import { FaHeaderComponent } from '../../shared/fa-header/fa-header.component';
   templateUrl: 'fa-search.component.html',
   styleUrls: ['fa-search.component.css'],
   directives: [FaListComponent, FaHeaderComponent],
-  providers: [SearchService]
+  providers: [SearchService,LocationService]
 })
 export class FaSearchComponent implements OnInit {
   restaurants: any[];
