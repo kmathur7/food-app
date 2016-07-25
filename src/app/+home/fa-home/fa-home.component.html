@@ -4,20 +4,20 @@
   </div>
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
-      <form class="form-inline">
+      <form class="form-inline" (ngSubmit)="onSubmit()" #heroForm="ngForm">
         <div class="form-group">
           
-          <input type="text" class="form-control" id="enterlocation" placeholder="Enter Location">
+          <input type="text" class="form-control" id="enterlocation" placeholder="Enter Location" required [(ngModel)]="model.term" name="term" #spy> 
         </div>
-        <button class="btn btn-default">
+        <button class="btn btn-default" type="submit" [disabled]="!heroForm.form.valid">
            <span class="glyphicon glyphicon-search"></span>
           Search
           </button>
-        <button class="btn btn-default" (click)="locate()">
+        <button class="btn btn-default" [routerLink]="['/search']">
           <span class="glyphicon glyphicon-globe"></span>
           Locate Me!
           </button>
-          {{lat}},{{long}}
+          
       </form>
     </div>
   </div>
