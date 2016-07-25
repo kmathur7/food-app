@@ -15,7 +15,7 @@ import { FaHeaderComponent } from '../../shared/fa-header/fa-header.component';
 export class FaSearchComponent implements OnInit {
 
   url: string;
-  private radius = 1000;
+  radius = 1000;
   restaurants: any[];
   errorMessage: any;
   showSpinner: boolean;
