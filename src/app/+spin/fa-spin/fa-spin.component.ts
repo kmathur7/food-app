@@ -14,6 +14,7 @@ import { FaRestaurantComponent } from '../../shared/fa-restaurant/fa-restaurant.
 })
 export class FaSpinComponent implements OnInit {
   url: string;
+  length: number;
   errorMessage: any;
   showSpinner: boolean = true;
   public restaurants: any[];
